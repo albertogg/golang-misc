@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/bmizerany/pat"
 )
@@ -26,7 +27,7 @@ func nameHandler(w http.ResponseWriter, req *http.Request) {
 	fmt.Printf("%s %s\n", req.Method, req.URL)
 	params := req.URL.Query()
 	name := params.Get(":name")
-	w.Write([]byte("Hello " + name))
+	w.Write([]byte("Hello " + strings.Title(name)))
 }
 
 func main() {
