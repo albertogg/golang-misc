@@ -25,7 +25,7 @@ type Bleh struct {
 }
 
 type BlehJSON struct {
-	Bleh Bleh `json:bleh"`
+	Bleh Bleh `json:"bleh"`
 }
 
 func blehHandler(w http.ResponseWriter, req *http.Request) {
