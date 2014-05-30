@@ -39,10 +39,10 @@ func blehHandler(w http.ResponseWriter, req *http.Request) {
 
 	respData, err := json.Marshal(BlehJSON{Bleh: resp})
 	if err != nil {
-		panic(err)
+		http.Error(w, fmt.Sprintf("Cannot encode response data"), 500)
+	} else {
+		w.Write(respData)
 	}
-
-	w.Write(respData)
 }
 
 func main() {
